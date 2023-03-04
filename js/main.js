@@ -16,17 +16,19 @@ function calcSumm(array) {
  * 
  * @param {Array} array 
  */
-function findSecondElem(array){
-
-    if(array.length < 2){
-        console.log("This array is too small");
-    }
-    else{
-        console.log(array.sort()[2]);
-    }
+function calcAverage(array){
+    let sum = calcSumm(array)
+    let average = sum / array.length;
+    return average;
 }
 
-findSecondElem([1, 2, 3, 0, -2]);
+function calcMultiplication(array){
+    let mult = 1;
+    for(let item of array){
+        mult = mult * item;
+    }
+    return mult;
+}
 
 /**
  * 
@@ -44,16 +46,21 @@ function logData(inputData, logginfFunc){
  */
 function main(){
     const exampleCnt = 4;
-    let arraysLenghts = [3, 5, 10, 100];
+    let arraysLenghts = [3, 5, 10, 20];
     document.write("<h3>Нахождение суммы последовательности</h3>");
     for(let i = 0; i < exampleCnt; i++){
         let randArray = generateRandomArray(arraysLenghts[i]);
         logData(randArray, calcSumm);
     }
-    document.write("<h3>Нахождение второго по величине элемента последовательности</h3>")
+    document.write("<h3>Нахождение среднего последовательности</h3>");
     for(let i = 0; i < exampleCnt; i++){
         let randArray = generateRandomArray(arraysLenghts[i]);
-        calcSumm(randArray);
+        logData(randArray, calcAverage);
+    }
+    document.write("<h3>Нахождение произведения последовательности</h3>");
+    for(let i = 0; i < exampleCnt; i++){
+        let randArray = generateRandomArray(arraysLenghts[i]);
+        logData(randArray, calcMultiplication);
     }
 }
 
